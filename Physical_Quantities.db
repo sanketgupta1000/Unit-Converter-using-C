@@ -1,0 +1,42 @@
+Physical Quantity scheme  :
+PQid  |  NAME  |  number_of_units  |  base_unit
+
+Unit scheme  :
+PQid.Uid  |  name  |  multiple_to_convert_to_base_unit  |  constant_to_be_added_for_conversion
+
+/
+
+Number of Physical Quantities : 3
+
+1 | LENGTH| 9 | meter
+    1.1 | millimeter(mm)| 0.001 | 0
+    1.2 | centimeter(cm)| 0.01 | 0
+    1.3 | meter(m)| 1 | 0
+    1.4 | kilometer(km)| 1000 | 0  
+    1.5 | inch(in)| 0.0254 | 0
+    1.6 | foot(ft)| 0.3048 | 0
+    1.7 | yard(yd)| 0.9144 | 0
+    1.8 | mile(mi)| 1609.344869045923 | 0
+    1.9 | nautical mile(NM)| 1852 | 0
+   
+
+2 | MASS| 6 | gram
+    2.1 | milligram(mg)| 0.001 | 0
+    2.2 | gram(g)| 1 | 0
+    2.3 | kilogram(kg)| 1000 | 0
+    2.4 | ounce(oz)| 28.3495 | 0
+    2.5 | pound(lb)| 453.592 | 0
+    2.6 | tone(t)| 1000000 | 0
+
+
+3 | SPEED| 9 | meter per second
+    3.1 | meter per second(m/s)| 1 | 0
+    3.2 | meter per hour(m/h)| 3600 | 0
+    3.3 | kilometer per second(m/s)| 0.001 | 0
+    3.4 | kilometer per hour(km/h)| 3.6 | 0
+    3.5 | inch per second(in/s)| 39.3700787402 | 0
+    3.6 | feet per second(ft/s)| 3.280839895 | 0
+    3.7 | miles per second(mi/s)| 0.0006213712 | 0
+    3.8 | miles per hour(mi/h)| 2.2369362921 | 0
+    3.9 | knots(kn)| 1.9438444924 | 0
+    
