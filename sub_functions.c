@@ -7,23 +7,29 @@ extern FILE * database;
 int show_menu(quantity *qty)
 {
     print_line();
+    printf("Exit : -1\n");
     int physical_quantity, i;
     printf("Here is the list of Physical Quantities...\n");
     for (i = 0 ; i < (no_of_qty-1) ; i+=2)
     {
-        printf("\t\t%-*s : %d\t\t\t\t%-*s : %d\n", NAME_LEN-20 , qty[i].qty_name, i + 1, NAME_LEN-20, qty[i+1].qty_name, i+2);
+        printf("\t\t%-*s : %d\t\t\t\t%-*s : %d\n", NAME_LEN-15 , qty[i].qty_name, i + 1, NAME_LEN-15, qty[i+1].qty_name, i+2);
     }
     if(no_of_qty%2)
     {
-        printf("\t\t%-*s : %d\n",NAME_LEN-20, qty[i].qty_name, i+1);
+        printf("\t\t%-*s : %d\n",NAME_LEN-15, qty[i].qty_name, i+1);
     }
-    printf("Enter chioce number of Physical Quantity you want to convert : ");
+    printf("Enter choice number of Physical Quantity you want to convert : ");
     
     //for invalid number
     // int flag=1;
     do
     {
         scanf("%d",&physical_quantity);
+        if(physical_quantity==-1)
+        {
+            exit_greeting();
+            exit(0);
+        }
     }
     while(((physical_quantity<1) || (physical_quantity>no_of_qty)) && printf("Invalid choice please enter valid choice : "));
     return physical_quantity;
@@ -36,7 +42,8 @@ int show_sub_menu(quantity *qty , int choice)
     printf("\n\t\t\t\t\t****Welcome to %s CONVERSION****\n\n",qty[choice].qty_name);
     print_line();
 
-    printf("\tBack : 0\n");    
+    printf("\tExit : -1\n");
+    printf("\tBack :  0\n");    
     //******for print the sub menu containing list of units*******
     for(i=0;i<((qty[choice].no_of_units)-1);i+=2)
     {
@@ -53,6 +60,11 @@ int show_sub_menu(quantity *qty , int choice)
     do 
     {
         scanf("%d",&initial_choice);
+        if(initial_choice==-1)
+        {
+            exit_greeting();
+            exit(0);
+        }
     }
     while(((initial_choice<0) || (initial_choice>(qty[choice].no_of_units))) && (printf("Invalid choice please enter valid choice : ")));
 
@@ -65,9 +77,6 @@ int show_sub_menu(quantity *qty , int choice)
 //to print horizontal line
 void print_line(void)
 {
-    // for center alignment
-    // printf("\t");
-    
     //for printing line 
     for(int i=0; i < 115 ; i++)
     {
@@ -91,6 +100,13 @@ void load_data(quantity *qty)
 			fscanf(database, "%*[^|]| %[^|]| %lf | %lf%*[^\n]",qty[i].qty_units[j].unit_name, &qty[i].qty_units[j].unit_to_base_multiple, &qty[i].qty_units[j].unit_to_base_constant);
 		}
 	}
+}
+
+void exit_greeting(void)
+{
+    print_line();
+    printf("\n\t\t\t\t\t*****Thank You for choosing UNIT CONVERTER*****\n\n");
+    print_line();
 }
 
 FILE * start_log(void)
