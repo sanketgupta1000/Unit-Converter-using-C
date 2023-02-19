@@ -6,7 +6,7 @@ PQid.Uid  |  name  |  multiple_to_convert_to_base_unit  |  constant_to_be_added_
 
 /
 
-Number of Physical Quantities : 3
+Number of Physical Quantities : 4
 
 1 | LENGTH| 9 | meter
     1.1 | millimeter(mm)| 0.001 | 0
@@ -31,12 +31,18 @@ Number of Physical Quantities : 3
 
 3 | SPEED| 9 | meter per second
     3.1 | meter per second(m/s)| 1 | 0
-    3.2 | meter per hour(m/h)| 3600 | 0
-    3.3 | kilometer per second(m/s)| 0.001 | 0
-    3.4 | kilometer per hour(km/h)| 3.6 | 0
-    3.5 | inch per second(in/s)| 39.3700787402 | 0
-    3.6 | feet per second(ft/s)| 3.280839895 | 0
-    3.7 | miles per second(mi/s)| 0.0006213712 | 0
-    3.8 | miles per hour(mi/h)| 2.2369362921 | 0
-    3.9 | knots(kn)| 1.9438444924 | 0
+    3.2 | meter per hour(m/h)| 0.000277777778 | 0
+    3.3 | kilometer per second(km/s)| 1000 | 0
+    3.4 | kilometer per hour(km/h)| 0.277777777778 | 0
+    3.5 | inch per second(in/s)| 0.0254 | 0
+    3.6 | feet per second(ft/s)| 0.3048 | 0
+    3.7 | miles per second(mi/s)| 1609.344869045923 | 0
+    3.8 | miles per hour(mi/h)| 0.477040058366 | 0
+    3.9 | knots(kn)| 0.514444 | 0
     
+    
+
+4 | TEMP| 3 | celcius
+    4.1 | celcius| 1 | 0
+    4.2 | kelvin| 1 | -273
+    4.3 | ferenhite| 0.555555555556 | -17.777777777778
