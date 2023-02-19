@@ -4,7 +4,10 @@ FILE *database;
 void main(void)
 {
     database=fopen("Physical_Quantities.db", "r");
-
+    
+    FILE *log=start_log();
+    int log_count=1;
+    
     //Taking input of number of physical quantities from the database file
     //Skipping lines containing schemes from the database file and scanning
     fscanf(database, "%*[^/]%*[^:]:%d", &no_of_qty);
@@ -13,6 +16,8 @@ void main(void)
     //to load all data from database to array of structure
     load_data(qty);
 
+    fclose(database);
+    
     //declaring variables for input and calculation
     int physical_quantity, initial_choice, final_choice;
     double initial_value, final_value;
@@ -75,6 +80,8 @@ void main(void)
 
             printf("Here is your conversion...\n");
             printf("%lf %s = %lf %s\n", initial_value, initial_unit_name, final_value, final_unit_name);
+            
+            fprintf(log, "\t%d.) %lf %s = %lf %s\n", log_count++, initial_value, initial_unit_name, final_value, final_unit_name);
 
             printf("Enter 'Y' to again convert %s to %s, otherwise enter 'N' : ", initial_unit_name, final_unit_name);
             scanf("\n%c",&same);
@@ -95,5 +102,5 @@ void main(void)
     print_line();
     printf("\n\t\t\t\t\t*****Thanks for choosing UNIT CONVERTER*****\n\n");
     print_line();
-    fclose(database);
+    fclose(log);
 }
