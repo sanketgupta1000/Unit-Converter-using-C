@@ -9,23 +9,23 @@ int show_menu(quantity *qty)
     print_line();
     int physical_quantity, i;
     printf("Here is the list of Physical Quantities...\n");
-    for (i = 0; i < no_of_qty; i++)
+    for (i = 0 ; i < (no_of_qty-1) ; i+=2)
     {
-        printf("\t%-*s : %d", NAME_LEN-10 , qty[i].qty_name, i + 1);
-        if (i % 2)
-        {
-            printf("\n");
-        }
+        printf("\t\t%-*s : %d\t\t\t\t%-*s : %d\n", NAME_LEN-20 , qty[i].qty_name, i + 1, NAME_LEN-20, qty[i+1].qty_name, i+2);
     }
-    printf("\n");
+    if(no_of_qty%2)
+    {
+        printf("\t\t%-*s : %d\n",NAME_LEN-20, qty[i].qty_name, i+1);
+    }
     printf("Enter chioce number of Physical Quantity you want to convert : ");
     
     //for invalid number
+    // int flag=1;
     do
     {
-        scanf("%d", &physical_quantity);
+        scanf("%d",&physical_quantity);
     }
-    while(((physical_quantity<1)||(physical_quantity>no_of_qty)) && printf("Invalid choice please enter valid choice : "));
+    while(((physical_quantity<1) || (physical_quantity>no_of_qty)) && printf("Invalid choice please enter valid choice : "));
     return physical_quantity;
 }
 
