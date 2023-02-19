@@ -63,7 +63,7 @@ Number of Physical Quantities : 10
     
 
 6 | TEMPERATURE| 3 | celcius
-    6.1 | celcius| 1 | 1
+    6.1 | celcius| 1 | 0
     6.2 | kelvin| 1 | -273.15
     6.3 | fahrenheit| 0.555555555556 | -17.777777777778
 
@@ -93,7 +93,7 @@ Number of Physical Quantities : 10
 10 | TIME| 7 | minute
     10.1 | millisecond(ms)| 0.000016666667 | 0
     10.2 | second(s)| 0.016666666667 | 0
-    10.3 | minute(min)| `1 | 0
+    10.3 | minute(min)| 1 | 0
     10.4 | hour(h)| 60 | 0
     10.5 | day(d)| 1440 | 0
     10.6 | week(wk)| 10080 | 0
