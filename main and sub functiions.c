@@ -23,9 +23,16 @@ void main(void)
 
     do
     {
+        
+        physical_quantity = show_menu(qty);
+
+        char sub_menu_flag='Y';
+        do 
+        {
+       
         do
         {
-            physical_quantity = show_menu(qty);
+                
             print_line();
             initial_choice = show_sub_menu(qty, physical_quantity-1);
             if(!(initial_choice))
@@ -39,33 +46,47 @@ void main(void)
                 scanf("%d", &final_choice);
             }
             while(((final_choice<0) || (final_choice>(qty[physical_quantity-1].no_of_units)) && (printf("Invalid choice please enter valid choice : "))));
+            if((final_choice))
             print_line();
-        } while ((!(initial_choice)) || (!(final_choice)));
 
-        printf("Enter the value : ");
-        scanf("%lf", &initial_value);
+        } while (((!(initial_choice)) || (!(final_choice))) && (physical_quantity=show_menu(qty)) );
 
 
-        double base_converter_multiple = qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_to_base_multiple;
-        double base_converter_constant = qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_to_base_constant;
+        char same='Y';
+        do 
+        {
+            printf("Enter the value : ");
+            scanf("%lf", &initial_value);
 
-        double final_converter_multiple = qty[physical_quantity - 1].qty_units[final_choice - 1].unit_to_base_multiple;
-        double final_converter_constant = qty[physical_quantity - 1].qty_units[final_choice - 1].unit_to_base_constant;
 
-        double base_value = ((initial_value) * (base_converter_multiple)) + (base_converter_constant) ;
-        double final_value = ((base_value) - (final_converter_constant)) / (final_converter_multiple) ;
+            double base_converter_multiple = qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_to_base_multiple;
+            double base_converter_constant = qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_to_base_constant;
 
-        char initial_unit_name[NAME_LEN], final_unit_name[NAME_LEN];
+            double final_converter_multiple = qty[physical_quantity - 1].qty_units[final_choice - 1].unit_to_base_multiple;
+            double final_converter_constant = qty[physical_quantity - 1].qty_units[final_choice - 1].unit_to_base_constant;
 
-        strcpy(initial_unit_name, qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_name);
-        strcpy(final_unit_name, qty[physical_quantity - 1].qty_units[final_choice - 1].unit_name);
+            double base_value = ((initial_value) * (base_converter_multiple)) + (base_converter_constant) ;
+            double final_value = ((base_value) - (final_converter_constant)) / (final_converter_multiple) ;
 
-        printf("Here is your conversion...\n");
-        printf("%lf %s = %lf %s\n", initial_value, initial_unit_name, final_value, final_unit_name);
+            char initial_unit_name[NAME_LEN], final_unit_name[NAME_LEN];
 
-        print_line();
+            strcpy(initial_unit_name, qty[physical_quantity - 1].qty_units[initial_choice - 1].unit_name);
+            strcpy(final_unit_name, qty[physical_quantity - 1].qty_units[final_choice - 1].unit_name);
 
-        printf("Do you wish to convert another physical quantity?\nEnter 'Y' to continue, otherwise enter 'N' : ");
+            printf("Here is your conversion...\n");
+            printf("%lf %s = %lf %s\n", initial_value, initial_unit_name, final_value, final_unit_name);
+
+            printf("Enter 'Y' to again convert %s to %s, otherwise enter 'N' : ", initial_unit_name, final_unit_name);
+            scanf("\n%c",&same);
+            print_line();
+        }
+        while((same=='Y') || (same=='y'));
+        
+        printf("Enter 'Y' again convert in %s Physical Quantity, otherwise enter 'N' : ",qty[physical_quantity-1].qty_name);
+        scanf("\n%c",&sub_menu_flag);
+        }
+        while((sub_menu_flag=='Y') || (sub_menu_flag=='y'));
+        printf("Do you wish to continue on UNIT CONVERTER ?\nEnter 'Y' to continue, otherwise enter 'N' : ");
         scanf("\n%c", &continue_flag);
 
         
