@@ -92,3 +92,31 @@ void load_data(quantity *qty)
 		}
 	}
 }
+
+FILE * start_log(void)
+{
+    time_t current_time;
+    struct tm *local_time;
+    char time_string[50];
+
+    // Get current time
+    current_time = time(NULL);
+
+    // Convert current time to local time
+    local_time = localtime(&current_time);
+
+    // Format the date and time string
+    strftime(time_string, sizeof(time_string), "%Y-%m-%d_%H-%M-%S.log", local_time);
+
+    char path[30] = "./logs/";
+
+    strcat(path,time_string);
+    FILE *p=fopen(path,"a");
+
+    if(p== NULL)
+    {
+        printf("Error in creating log file...");
+        exit(1);
+    }
+    return p;
+}
