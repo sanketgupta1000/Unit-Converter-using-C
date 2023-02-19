@@ -33,3 +33,4 @@ int show_sub_menu(quantity *, int);
 void print_line(void);
 void load_data(quantity *);
 FILE *start_log(void);
+void exit_greeting(void);
