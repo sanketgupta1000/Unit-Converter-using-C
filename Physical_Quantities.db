@@ -1,8 +1,8 @@
 Physical Quantity scheme  :
-PQid  |  NAME  |  number_of_units  |  base_unit
+PQid  |  NAME|  number_of_units  |  base_unit
 
 Unit scheme  :
-PQid.Uid  |  name  |  multiple_to_convert_to_base_unit  |  constant_to_be_added_for_conversion
+PQid.Uid  |  name|  multiple_to_convert_to_base_unit  |  constant_to_be_added_for_conversion
 
 /
 
